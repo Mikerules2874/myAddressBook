@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    tools {
+    maven 'my maven'
+    }
+        stage {
+            stage {'Build'} {
+                steps {
+                    sh "mvn clean package"
+            }
+        }
+    }
+}
