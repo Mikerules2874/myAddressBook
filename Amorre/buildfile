@@ -11,7 +11,9 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-        
+        sshagent(['Jentomcat']) {
+     sh "scp -o StrictHostKeyChecking=no target/*.war ansadmin@44.200.240.212:/home/ansadmin/tomcat/webapps"
+}
          }
        }
     }
